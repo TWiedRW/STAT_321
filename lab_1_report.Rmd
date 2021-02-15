@@ -2,10 +2,20 @@
 title: "Lab 1 Report"
 author: "Tyler Wiederich"
 date: "2/11/2021"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Introduction
+
+In this lab, we are exploring response times the Shapesplosion game at https://stat2games.sites.grinnell.edu. Our study consists of four subjects, each of whom has played each matching scheme one time and recorded their times. 
+
+# Methods
+
+# Results
+
+# Discussion and Conclusion
 
