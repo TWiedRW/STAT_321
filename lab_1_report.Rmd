@@ -6,8 +6,18 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.width = 6, fig.height = 2.5)
+library(tidyverse)
+library(ggpubr)
+library(broom)
+
+orig <- readxl::read_excel('Lab 1 Data.xlsx')
+
+df <- janitor::clean_names(orig)# %>% filter(participant < 5)
+df$participant <- as.character(df$participant)
 ```
+
+
 
 # Introduction
 
@@ -17,5 +27,25 @@ In this lab, we are exploring response times the Shapesplosion game at https://s
 
 # Results
 
+For our analysis, we conducted a one-way blocked analysis of variance. Taking a look at Figure 1, we can 
+
+```{r, echo=FALSE, fig.cap='Boxplot of Response Times by Game'}
+ggpubr::ggboxplot(df, 'shapesplosion', 'time_seconds') +
+  labs(x = 'Game', y = 'Time (in seconds)') +
+  ggtitle('Time Response for Shapesplosion Games')
+
+```
+
+In Table 1, we can see, at the $\alpha=0.05$ level that there is evidence to suggest that the response times are different across the Shapesplosion Games.
+
+```{r, fig.cap='Table 1', echo=FALSE}
+mod <- lm(time_seconds ~ shapesplosion + participant, 
+          data = df)
+knitr::kable(tidy(round(anova(mod),4)))
+```
+
+
 # Discussion and Conclusion
+
+
 
