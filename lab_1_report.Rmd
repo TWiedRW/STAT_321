@@ -17,7 +17,8 @@ df <- janitor::clean_names(orig)# %>% filter(participant < 5)
 df$participant <- as.character(df$participant)
 ```
 
-Link to GitHub: [Here](https://docs.google.com/document/d/1S4Z3g0xJKffbYEg2MhP7jPf99jayw14m7c4IV8Mf8T0/edit?usp=sharing)
+# GOOGLE DRIVE
+Link to Google doc: [Here](https://docs.google.com/document/d/1S4Z3g0xJKffbYEg2MhP7jPf99jayw14m7c4IV8Mf8T0/edit?usp=sharing)
 
 # Introduction
 
