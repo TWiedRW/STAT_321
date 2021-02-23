@@ -1,8 +1,8 @@
 ---
 title: "Lab 1 Report"
-author: "Tyler Wiederich"
+author: "Tyler Wiederich, Neil Callahan, Ben Winters"
 date: "2/11/2021"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ df <- janitor::clean_names(orig)# %>% filter(participant < 5)
 df$participant <- as.character(df$participant)
 ```
 
-
+Link to GitHub: [Here](https://docs.google.com/document/d/1S4Z3g0xJKffbYEg2MhP7jPf99jayw14m7c4IV8Mf8T0/edit?usp=sharing)
 
 # Introduction
 
@@ -39,7 +39,7 @@ ggpubr::ggboxplot(df, 'shapesplosion', 'time_seconds') +
 In Table 1, we can see, at the $\alpha=0.05$ level that there is evidence to suggest that the response times are different across the Shapesplosion Games.
 
 ```{r, fig.cap='Table 1', echo=FALSE}
-mod <- lm(time_seconds ~ shapesplosion + participant, 
+mod <- aov(time_seconds ~ shapesplosion + participant, 
           data = df)
 knitr::kable(tidy(round(anova(mod),4)))
 ```
